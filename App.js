@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { View, Button } from "react-native";
+ 
 export default function App() {
+  const rokuIp = "192.168.1.69"; // Replace with your Roku IP
+ 
+  function goHome() {
+    fetch(`http://${rokuIp}:8060/keypress/Home`, { method: "POST" });
+  }
+ 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Button title="Go Home" onPress={goHome} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
