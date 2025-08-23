@@ -6,10 +6,17 @@ export default function App() {
   function goHome() {
     fetch(`http://${rokuIp}:8060/keypress/Home`, { method: "POST" });
   }
- 
+  function goSelect() {
+    fetch(`http://${rokuIp}:8060/keypress/Select`, { method: "POST" });
+  }
+
+
+
+  
   return (
     <View style={{ flex: 1, justifyContent: "center" }}>
       <Button title="Go Home" onPress={goHome} />
+      <Button title="Select" onPress={goSelect} />
     </View>
   );
 }
