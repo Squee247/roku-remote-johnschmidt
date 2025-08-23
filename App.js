@@ -9,14 +9,17 @@ export default function App() {
   function goSelect() {
     fetch(`http://${rokuIp}:8060/keypress/Select`, { method: "POST" });
   }
+  function volumeUp() {
+    fetch(`http://${rokuIp}:8060/keypress/VolumeUp`, { method: "POST" });
+  }
 
 
 
-  
   return (
     <View style={{ flex: 1, justifyContent: "center" }}>
       <Button title="Go Home" onPress={goHome} />
       <Button title="Select" onPress={goSelect} />
+      <Button title="Volume Up" onPress={volumeUp} />
     </View>
   );
 }
