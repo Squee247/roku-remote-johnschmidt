@@ -22,6 +22,14 @@ export default function App() {
     fetch(`http://${rokuIp}:8060/keypress/VolumeDown`, { method: "POST" });
   }
 
+  function powerOff() {
+    fetch(`http://${rokuIp}:8060/keypress/PowerOff`, { method: "POST" });
+  }
+
+  function powerOn() {
+    fetch(`http://${rokuIp}:8060/keypress/PowerOn`, { method: "POST" });
+  }
+
 
   return (
     <View style={{ flex: 1, justifyContent: "center" }}>
@@ -30,6 +38,8 @@ export default function App() {
       <Button title="Go Back" onPress={goBack} />
       <Button title="Volume Up" onPress={volumeUp} />
       <Button title="Volume Down" onPress={volumeDown} />
+      <Button title="Power Off" onPress={powerOff} />
+      <Button title="Power On" onPress={powerOn} />
     </View>
   );
 }
