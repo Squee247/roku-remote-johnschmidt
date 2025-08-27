@@ -8,7 +8,7 @@ export default function App() {
   }
  
   function goSelect() {
-  fetch(`http://${rokuIp}:8060/keypress/Select`, { method: "POST" });
+    fetch(`http://${rokuIp}:8060/keypress/Select`, { method: "POST" });
   }
 
   function goBack() {
