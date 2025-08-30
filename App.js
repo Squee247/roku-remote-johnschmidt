@@ -1,8 +1,18 @@
-import { View, Button } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
  
 export default function App() {
   const rokuIp = "192.168.1.69"; // Replace with your Roku IP
  
+
+
+  function powerOff() {
+    fetch(`http://${rokuIp}:8060/keypress/PowerOff`, { method: "POST" });
+  }
+
+  function powerOn() {
+    fetch(`http://${rokuIp}:8060/keypress/PowerOn`, { method: "POST" });
+  }
+  
   function goHome() {
     fetch(`http://${rokuIp}:8060/keypress/Home`, { method: "POST" });
   }
@@ -20,14 +30,6 @@ export default function App() {
   }
   function volumeDown() {
     fetch(`http://${rokuIp}:8060/keypress/VolumeDown`, { method: "POST" });
-  }
-
-  function powerOff() {
-    fetch(`http://${rokuIp}:8060/keypress/PowerOff`, { method: "POST" });
-  }
-
-  function powerOn() {
-    fetch(`http://${rokuIp}:8060/keypress/PowerOn`, { method: "POST" });
   }
 
   function goUp() {
@@ -53,18 +55,36 @@ export default function App() {
 
 
   return (
-    <View style={{ flex: 1, justifyContent: "center" }}>
-      <Button title="Go Home" onPress={goHome} />
-      <Button title="Go Select" onPress={goSelect} />
-      <Button title="Go Back" onPress={goBack} />
-      <Button title="Volume Up" onPress={volumeUp} />
-      <Button title="Volume Down" onPress={volumeDown} />
-      <Button title="Power Off" onPress={powerOff} />
-      <Button title="Power On" onPress={powerOn} />
-      <Button title="Go Up" onPress={goUp} />
-      <Button title="Go Down" onPress={goDown} />
-      <Button title="Go Left" onPress={goLeft} />
-      <Button title="Go Right" onPress={goRight} />
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      {[ 
+        { title: "Power Off", onPress: powerOff, color: "#b81818ff" },
+        { title: "Power On", onPress: powerOn, color: "#056105ff" },
+        { title: "Go Home", onPress: goHome, color: "#6200ee" }, 
+        { title: "Go Select", onPress: goSelect, color: "#03dac6" },
+        { title: "Go Back", onPress: goBack, color: "#b00020" },
+        { title: "Volume Up", onPress: volumeUp, color: "#388e3c" },
+        { title: "Volume Down", onPress: volumeDown, color: "#1976d2" },
+        { title: "Go Up", onPress: goUp, color: "#8e24aa" },
+        { title: "Go Down", onPress: goDown, color: "#fbc02d" },
+        { title: "Go Left", onPress: goLeft, color: "#009688" },
+        { title: "Go Right", onPress: goRight, color: "#c51189ff" },
+      ].map((btn, idx) => (
+        <TouchableOpacity
+          key={btn.title}
+          style={{
+            backgroundColor: btn.color,
+            paddingVertical: 14,
+            paddingHorizontal: 32,
+            borderRadius: 8,
+            marginBottom: 10,
+            minWidth: 180,
+            alignItems: "center",
+          }}
+          onPress={btn.onPress}
+        >
+          <Text style={{ color: btn.color === "#ffeb3b" ? "#000" : "#fff", fontSize: 16, fontWeight: "bold" }}>{btn.title}</Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }
