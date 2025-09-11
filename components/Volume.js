@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        top: -130,
+        top: 15,
         marginHorizontal: 25,
         flexDirection: "row",
         justifyContent: "center",

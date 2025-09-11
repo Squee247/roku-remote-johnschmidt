@@ -7,23 +7,23 @@ export function DPad() {
         <View style={styles.container}>
             <View>
                 <Pressable style={styles.verticalButtons} onPress={EcpNav.up}>
-                    <Text style={styles.text}>U</Text>
+                    <Text style={styles.text}>↑</Text>
                 </Pressable>
             </View>
             <View style={styles.horizontalContainer}>
                 <Pressable style={styles.horizontalButtons} onPress={EcpNav.left}>
-                    <Text style={styles.text}>L</Text>
+                    <Text style={styles.text}>←</Text>
                 </Pressable>
                 <Pressable style={styles.selectButtons} onPress={EcpNav.select}>
                     <Text style={styles.text}>OK</Text>
                 </Pressable>
                 <Pressable style={styles.horizontalButtons} onPress={EcpNav.right}>
-                    <Text style={styles.text}>R</Text>
+                    <Text style={styles.text}>→</Text>
                 </Pressable>
             </View>
             <View>
                 <Pressable style={styles.verticalButtons} onPress={EcpNav.down}>
-                    <Text style={styles.text}>D</Text>
+                    <Text style={styles.text}>↓</Text>
                 </Pressable>
             </View>
         </View>
@@ -41,23 +41,23 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
         verticalButtons: {
-        width: 80,
-        height: 40,
+        width: 100,
+        height: 60,
         justifyContent: "center",
         marginBottom: 8,
         borderRadius: 15,
         backgroundColor: "black",
     },
         horizontalButtons: {
-        width: 40,
-        height: 80,
+        width: 60,
+        height: 100,
         borderRadius: 15,
         marginHorizontal: 8,
         backgroundColor: "black",
         justifyContent: "center",
     },
     text: {
-        fontSize: 26,
+        fontSize: 45,
         color: "white",
         textAlign: "center",
     },
